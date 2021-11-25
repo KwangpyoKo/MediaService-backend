@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserService(private val userRepository: UserRepository) {
-    fun getUserById(id: String): UserResponseDto?{ return UserResponseDto(userRepository.findById(id)) }
+    fun getUserById(id: String): UserResponseDto?{ return UserResponseDto(this.userRepository.findById(id)) }
 }

@@ -13,7 +13,7 @@ class UserController(private val userService: UserService){
     @GetMapping("/")
     private fun getUserById(@RequestParam(value = "id") id: String): UserResponseDto?
     {
-        return userService.getUserById(id)
+        return this.userService.getUserById(id)
     }
 
 
