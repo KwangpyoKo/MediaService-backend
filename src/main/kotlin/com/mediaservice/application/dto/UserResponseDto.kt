@@ -1,14 +1,12 @@
 package com.mediaservice.application.dto
 
 import com.mediaservice.domain.User
+import org.jetbrains.exposed.dao.id.EntityID
 import java.util.*
 
-data class UserResponseDto(
-    val id: UUID,
-    val email: String) {
+data class UserResponseDto(val email: String) {
     companion object {
         fun from(user: User) = UserResponseDto(
-            id = user.id,
             email = user.email
         )
     }
