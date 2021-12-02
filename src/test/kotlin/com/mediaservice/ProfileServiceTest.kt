@@ -11,11 +11,10 @@ import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.BDDMockito.given
 import org.mockito.Mock
 import org.mockito.junit.jupiter.MockitoExtension
-import java.util.*
+import java.util.UUID
 
 @ExtendWith(MockitoExtension::class)
-class ProfileServiceTest(@Mock val profileRepository: ProfileRepository)
-{
+class ProfileServiceTest(@Mock val profileRepository: ProfileRepository) {
     private val profileService:ProfileService = ProfileService(this.profileRepository)
     private lateinit var profile: Profile
     private lateinit var user: User
@@ -23,7 +22,7 @@ class ProfileServiceTest(@Mock val profileRepository: ProfileRepository)
     private lateinit var profileId: UUID
 
     @BeforeEach
-    fun setUp(){
+    fun setUp() {
         this.userId = UUID.randomUUID()
         this.profileId = UUID.randomUUID()
         this.user = User(userId,"test@emai.com","password")
@@ -31,7 +30,7 @@ class ProfileServiceTest(@Mock val profileRepository: ProfileRepository)
     }
 
     @Test
-    fun successFindById(){
+    fun successFindById() {
         //given
         given(this.profileRepository.findById(this.profileId)).willReturn(this.profile)
 
@@ -41,5 +40,4 @@ class ProfileServiceTest(@Mock val profileRepository: ProfileRepository)
         //then
         assert(this.profile.name == profileResponseDto.name)
     }
-
 }

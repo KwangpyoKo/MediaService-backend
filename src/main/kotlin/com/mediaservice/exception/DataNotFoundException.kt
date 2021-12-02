@@ -1,3 +1,3 @@
 package com.mediaservice.exception
 
-class DataNotFoundException(message: String): Exception(message)
+class DataNotFoundException(errorCode: ErrorCode, message: String): BaseRuntimeException(errorCode, message)

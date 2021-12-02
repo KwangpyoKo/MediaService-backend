@@ -14,7 +14,7 @@ object ProfileTable: UUIDTable("TB_PROFILE"){
     val mainImage: Column<String> = varchar("main_image", 255)
 }
 
-class Profile(var id: UUID, var user: User, var name: String, val rate: String, val mainImage: String){
+class Profile(var id: UUID, var user: User, var name: String, var rate: String, var mainImage: String){
     companion object {
         fun from(profileEntity: ProfileEntity) = Profile(
                 id = profileEntity.id.value,
