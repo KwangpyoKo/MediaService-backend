@@ -8,6 +8,6 @@ import java.util.*
 @Repository
 class ProfileRepository {
     fun findById(id: UUID): Profile?{
-        return ProfileEntity.findById(id)?.let {return Profile.from(it) }
+        return ProfileEntity.findById(id)?.let { Profile.from(it) }
     }
 }

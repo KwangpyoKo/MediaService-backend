@@ -7,17 +7,9 @@ import org.jetbrains.exposed.dao.id.UUIDTable
 import org.jetbrains.exposed.sql.Column
 import java.util.*
 
-enum class sAudienceRate(val status: String){
-    G_rated("all"),
-    PG("12+"),
-    PG_13("15+"),
-    X_rated("19+")
-}
-
 object ProfileTable: UUIDTable("TB_PROFILE"){
     val user = reference("user", UserTable)
     val name: Column<String> = varchar("name", 255)
-//    val rate = enumeration("rate", AudienceRate::class)
     val rate: Column<String> = varchar("age_rate", 255)
     val mainImage: Column<String> = varchar("main_image", 255)
 }

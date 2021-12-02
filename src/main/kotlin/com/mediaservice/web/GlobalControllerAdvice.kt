@@ -13,8 +13,8 @@ import java.time.LocalDateTime
 @RestControllerAdvice
 class GlobalControllerAdvice {
     @ExceptionHandler(value = [DataNotFoundException::class])
-    fun userNotFoundException(e: DataNotFoundException): ExceptionDto{
-        return ExceptionDto(ErrorCode.ROW_DOES_NOT_EXIST, LocalDateTime.now())
+    fun dataNotFoundException(e: DataNotFoundException): ExceptionDto{
+        return ExceptionDto(ErrorCode.ROW_DOES_NOT_EXIST, e.message ,LocalDateTime.now())
     }
     @ExceptionHandler(value = [AccessDeniedException::class])
     fun accessDeniedException(e: AccessDeniedException): String{

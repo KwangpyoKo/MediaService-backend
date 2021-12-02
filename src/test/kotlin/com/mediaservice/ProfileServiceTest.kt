@@ -14,7 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension
 import java.util.*
 
 @ExtendWith(MockitoExtension::class)
-class ProfileServiceTest(@Mock val profileRepository:ProfileRepository)
+class ProfileServiceTest(@Mock val profileRepository: ProfileRepository)
 {
     private val profileService:ProfileService = ProfileService(this.profileRepository)
     private lateinit var profile: Profile

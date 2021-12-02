@@ -11,7 +11,7 @@ import java.util.*
 class ProfileService(private val profileRepository: ProfileRepository) {
     @Transactional(readOnly = true)
     fun findById(id: UUID): ProfileResponseDto {
-        return ProfileResponseDto.from(this.profileRepository.findById(id) ?: throw DataNotFoundException(id)
+        return ProfileResponseDto.from(this.profileRepository.findById(id)?: throw DataNotFoundException("NO SUCH PROFILE $id")
         )
     }
 }

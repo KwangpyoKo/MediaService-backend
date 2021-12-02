@@ -2,7 +2,6 @@ package com.mediaservice.application.dto
 
 import com.mediaservice.domain.Profile
 import com.mediaservice.domain.User
-import java.util.*
 
 data class ProfileResponseDto(
         val user: User,

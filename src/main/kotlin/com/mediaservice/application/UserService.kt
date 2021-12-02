@@ -12,7 +12,7 @@ class UserService(private val userRepository: UserRepository) {
     @Transactional(readOnly = true)
     fun findById(id: UUID): UserResponseDto {
         return UserResponseDto.from(
-            this.userRepository.findById(id)?: throw DataNotFoundException(id)
+            this.userRepository.findById(id)?: throw DataNotFoundException("NO SUCH USER $id")
         )
     }
 }
