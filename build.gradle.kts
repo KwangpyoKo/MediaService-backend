@@ -32,6 +32,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.exposed:exposed-spring-boot-starter:0.36.2")
     implementation("io.springfox:springfox-boot-starter:3.0.0")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.glassfish:jakarta.el:3.0.3")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.projectlombok:lombok")
@@ -81,7 +83,8 @@ tasks.jacocoTestReport {
                     "**/domain/**",
                     "**/config/**",
                     "**/web/**",
-                    "**/exception/**"
+                    "**/exception/**",
+                    "**/validator/**"
                 )
             }
         })

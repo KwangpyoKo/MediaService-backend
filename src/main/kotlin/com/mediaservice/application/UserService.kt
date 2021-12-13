@@ -5,12 +5,12 @@ import com.mediaservice.application.dto.UserResponseDto
 import com.mediaservice.config.JwtTokenProvider
 import com.mediaservice.domain.repository.UserRepository
 import com.mediaservice.exception.BadRequestException
-import com.mediaservice.exception.DataNotFoundException
 import com.mediaservice.exception.ErrorCode
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.util.UUID
+import javax.validation.Valid
 
 
 @Service
@@ -20,10 +20,10 @@ class UserService(
     private val tokenProvider: JwtTokenProvider
 ) {
     @Transactional(readOnly = true)
-    fun findById(id: UUID): UserResponseDto {
+    fun findById(id: UUID): @Valid UserResponseDto {
         return UserResponseDto.from(
             this.userRepository.findById(id) ?: throw BadRequestException(
-                ErrorCode.ROW_DOES_NOT_EXIST, "NO SUCH PROFILE $id"
+                ErrorCode.ROW_DOES_NOT_EXIST, "NO SUCH USER $id"
             )
         )
     }
