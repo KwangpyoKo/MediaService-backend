@@ -21,7 +21,7 @@ class GlobalControllerAdvice {
             stringBuilder.append(fieldErrors.rejectedValue)
                     .append(": ").append(fieldErrors.defaultMessage).append(". ")
 
-        return ExceptionDto(ErrorCode.BAD_REQUEST, stringBuilder.toString())
+        return ExceptionDto(ErrorCode.BAD_REQUEST_DTO_FORMAT, stringBuilder.toString())
     }
 
     @ExceptionHandler(value = [BadRequestException::class])

@@ -39,6 +39,4 @@ class SecurityConfig(private val tokenProvider: JwtTokenProvider) : WebSecurityC
                 "/webjars/**", "/swagger/**", "/swagger-ui/**"
         )
     }
-
-
 }
