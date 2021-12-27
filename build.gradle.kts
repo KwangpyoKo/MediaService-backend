@@ -76,18 +76,20 @@ tasks.jacocoTestReport {
     }
 
     classDirectories.setFrom(
-        files(classDirectories.files.map {
-            fileTree(it) {
-                exclude(
-                    "**/application/dto/**",
-                    "**/domain/**",
-                    "**/config/**",
-                    "**/web/**",
-                    "**/exception/**",
-                    "**/validator/**"
-                )
+        files(
+            classDirectories.files.map {
+                fileTree(it) {
+                    exclude(
+                        "**/application/dto/**",
+                        "**/domain/**",
+                        "**/config/**",
+                        "**/web/**",
+                        "**/exception/**",
+                        "**/validator/**"
+                    )
+                }
             }
-        })
+        )
     )
 }
 

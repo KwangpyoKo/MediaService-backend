@@ -17,9 +17,9 @@ class GlobalControllerAdvice {
     fun methodArgumentNotValidException(e: MethodArgumentNotValidException): ExceptionDto {
         val bindingResult: BindingResult = e.bindingResult
         val stringBuilder = StringBuilder()
-        for(fieldErrors: FieldError in bindingResult.fieldErrors)
+        for (fieldErrors: FieldError in bindingResult.fieldErrors)
             stringBuilder.append(fieldErrors.rejectedValue)
-                    .append(": ").append(fieldErrors.defaultMessage).append(". ")
+                .append(": ").append(fieldErrors.defaultMessage).append(". ")
 
         return ExceptionDto(ErrorCode.BAD_REQUEST_DTO_FORMAT, stringBuilder.toString())
     }

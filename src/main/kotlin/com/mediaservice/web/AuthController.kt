@@ -5,9 +5,9 @@ import com.mediaservice.application.dto.UserRequestDto
 import com.mediaservice.application.dto.UserResponseDto
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
-import javax.validation.Valid
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/v1/auth")

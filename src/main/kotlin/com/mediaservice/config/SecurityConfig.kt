@@ -15,9 +15,7 @@ class SecurityConfig(private val tokenProvider: JwtTokenProvider) : WebSecurityC
         http
             .httpBasic().disable()
             .csrf().disable()
-
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-
             .and()
             .authorizeRequests()
             .antMatchers(
@@ -25,7 +23,6 @@ class SecurityConfig(private val tokenProvider: JwtTokenProvider) : WebSecurityC
             )
             .permitAll()
             .anyRequest().authenticated()
-
             .and()
             .addFilterBefore(
                 JwtAuthenticationFilter(this.tokenProvider),
@@ -35,8 +32,8 @@ class SecurityConfig(private val tokenProvider: JwtTokenProvider) : WebSecurityC
 
     override fun configure(web: WebSecurity) {
         web.ignoring().antMatchers(
-                "/v2/api-docs", "/swagger-resources/**",
-                "/webjars/**", "/swagger/**", "/swagger-ui/**"
+            "/v2/api-docs", "/swagger-resources/**",
+            "/webjars/**", "/swagger/**", "/swagger-ui/**"
         )
     }
 }
