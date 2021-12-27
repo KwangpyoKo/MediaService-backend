@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional
 import java.util.UUID
 import javax.validation.Valid
 
-
 @Service
 class UserService(
     private val userRepository: UserRepository,
@@ -43,7 +42,7 @@ class UserService(
 
     @Transactional(readOnly = true)
     fun signIn(userRequestDto: UserRequestDto): String {
-        //singIn is just for 'select' of profiles // not yet
+        // singIn is just for 'select' of profiles // not yet
         val userForLogin = userRepository.findByEmail(userRequestDto.email)
             ?: throw BadRequestException(ErrorCode.INVALID_SIGN_IN, "WRONG EMAIL ${userRequestDto.email}")
         return if (passwordEncoder.matches(userRequestDto.password, userForLogin.password)) {
@@ -53,4 +52,3 @@ class UserService(
         }
     }
 }
-
