@@ -83,8 +83,7 @@ tasks.jacocoTestReport {
                         "**/domain/**",
                         "**/config/**",
                         "**/web/**",
-                        "**/exception/**",
-                        "**/validator/**"
+                        "**/exception/**"
                     )
                 }
             }
